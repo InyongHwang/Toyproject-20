@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>게시글 상세 페이지</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css.css">
+
+    <script>
+        let domain = window.location.protocol + '//' + window.location.host
+
+        $(document).ready(function () {
+            show_project();
+        });
+
+        function show_project() {
+            let url = window.location.href
+            let post_id = url.split('/').pop()
+               
+            fetch('/projects/show/' + post_id).then((res) => res.json()).then((data) => {
+                if (data['success'] == true) {
+                    let title = data['title']
+                    let content = data['content']
+                    // let writer_email = 123 // 이 게시글을 작성한 유저의 email
+                    // let member_email = $.cookie('email'), if == undefined
+                    
+                    let writer_email = data['member_email']
+                    let member_email = 'w.hand715@gmail.com'
+
+                    $('#title').text(title)
+                    $('#content').text(content)
+
+                    $('#buttons').empty()
+                    let edit_url = domain + '/projects/edit/' + post_id
+                    temp_html = `<a href="#" onclick="join_project('${post_id}')" class="on" id="join_button">신청</a>
+                                 <a href="${edit_url}" id="edit_button">수정</a>
+                                 <a href="#" onclick="delete_project('${post_id}')" id="delete_button">삭제</a>`
+                    $('#buttons').append(temp_html)
+
+                    if (writer_email == member_email) {
+                        $('#join_button').hide()
+                    } else {
+                        $('#edit_button').hide()
+                        $('#delete_button').hide()
+                    }
+                } else {
+                    alert(data['msg'])
+                }
+            })
+        }
+
+        function delete_project(post_id) {
+            let json_data = JSON.stringify({
+                'post_id':post_id
+            })
+            
+            fetch('/projects/remove', {
+                method:'DELETE',
+                headers:{'Content-Type':'application/json'},
+                body:json_data
+            }).then(res => res.json()).then(data => {
+                alert(data['msg'])
+                window.location.href = domain + '/projects/main'
+            })
+        }
+
+        function join_project(post_id) {
+            // let member_email = $.cookie('email')
+            let member_email = 'w.hand715@gmail.com'
+
+            let json_data = JSON.stringify({
+                'member_email':member_email,
+                'post_id':post_id
+            })
+
+            fetch('/projects/join/in', {
+                        method:'POST',
+                        headers:{'Content-Type':'application/json'},
+                        body:json_data
+            }).then(res => res.json()).then(data => {
+                alert(data['msg'])
+                if (data['success'] == false) {
+                    window.location.href = domain + '/projects/main'
+                } else {
+                    window.location.href = domain + '/projects/join'
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>모집 중인 프로젝트</strong>
+            <p>함께할 사람을 구합니다.</p>
+        </div>
+        <div class="board_view_wrap">
+            <div class="board_view">
+                <div class="title" id="title">
+                </div>
+                <div class="info">
+                </div>
+                <div class="cont" id="content">
+                </div>
+            </div>
+            <div class="bt_wrap" id="buttons">
+                <a href="list.html" class="on">신청</a>
+                <a href="edit.html">수정</a>
+                <a href="edit.html">삭제</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
