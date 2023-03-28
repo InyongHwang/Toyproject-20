@@ -38,7 +38,7 @@
                 $('#content').text(content)
                 
                 $('#edit_button').empty()
-                console.log(post_id)
+                
                 let temp_html = `<a href="#" class="on" onclick="edit_project('${post_id}')">수정하기</a>`
                 $('#edit_button').append(temp_html)
             })
@@ -54,7 +54,7 @@
                 'title': title,
                 'content': content
             })
-
+            console.log(json_data)
             fetch('/projects/edit', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
