@@ -18,29 +18,32 @@
     <script>
         function signup() {
             let email_give = $('#email').val()
-            let ninkname_give = $('#ninkname').val()
+            let nickname_give = $('#nickname').val()
             let password_give = $('#password').val()
             let bloglink_give = $('#bloglink').val()
 
             let formData = new FormData();
             formData.append("email_give", email_give)
-            formData.append("ninkname_give", ninkname_give)
+            formData.append("nickname_give", nickname_give)
             formData.append("password_give", password_give)
             formData.append("bloglink_give", bloglink_give)
 
-            // fetch('/members/signup', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
-            //     alert(data['msg'])
-            //     window.location.reload()
-            // })
-            fetch('/members/signup', { method: "POST", body: formData })
-            // window.location.reload()
+            fetch('/members/signup', { method: "POST", body: formData }).then((res) => res.json()).then((data) => {
+                success = data['result']
+                if (success == true) {
+                    window.location.href = 'http://localhost:5000'
+                } else {
+                    alert('Error')
+                    window.location.reload()
+                }
+            })
         }
     </script>
 
 </head>
 <body>
     <input type="text", id="email">이메일<br>
-    <input type="text", id="ninkname">닉네임<br>
+    <input type="text", id="nickname">닉네임<br>
     <input type="password", id="password">패스워드<br>
     <input type="text", id="bloglink">블로그링크<br>
     <button onclick="signup()">회원가입하기</button>
