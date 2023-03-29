@@ -1,0 +1,49 @@
+.logo {
+    background-color: green;
+    width:200px;
+    height:100px;
+    margin:20px auto auto auto;
+    text-align:center;
+    padding:20px;
+}
+.container {
+    margin-top:20px;
+    display:flex;
+}
+.container > div {
+    background-color:gray;
+    display: inline-block;
+    margin-right:20px;
+}
+.side_bar {
+    width:120px;
+    height:500px;
+}
+.side_bar > div {
+    margin:auto;
+    background-color: aqua;
+    margin-bottom:50px;
+    text-align:center;
+    padding-top:20px;
+}
+.profile {
+    background-color:aqua;
+    border-radius:50%;
+    width:100px;
+    height:100px;
+    text-align:center;
+    font-size:20px;
+}
+.join_list {
+    font-size:20px;
+    width:100px;
+    height:100px;
+}
+.host_list {
+    font-size:20px;
+    width:100px;
+    height:100px;
+}
+.board_wrap {
+    width:800px;
+}

@@ -17,8 +17,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="/static/css.css">
 
+    <link rel="stylesheet" href="/static/css.css">
     <script>
         let domain = window.location.protocol + '//' + window.location.host
 
@@ -99,28 +99,58 @@
                 }
             })
         }
+
+        function join_list() {
+            window.location.href = domain + '/projects/join'
+        }
+
+        function host_list() {
+            window.location.href = domain + '/projects/host'
+        }
+
+        function main() {
+            window.location.href = domain+ '/projects/main'
+        }
     </script>
 </head>
 
 <body>
-    <div class="board_wrap">
-        <div class="board_title">
-            <strong>모집 중인 프로젝트</strong>
-            <p>함께할 사람을 구합니다.</p>
-        </div>
-        <div class="board_view_wrap">
-            <div class="board_view">
-                <div class="title" id="title">
-                </div>
-                <div class="info">
-                </div>
-                <div class="cont" id="content">
-                </div>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+        <h1>로고 영역</h1>
+    </div>
+    <div class="container">
+        <div class="side_bar">
+            <div class="profile">
+                닉네임
             </div>
-            <div class="bt_wrap" id="buttons">
-                <a href="list.html" class="on">신청</a>
-                <a href="edit.html">수정</a>
-                <a href="edit.html">삭제</a>
+            <div class="join_list" style="cursor:pointer;" onclick="join_list()">
+                신청한 </br>프로젝트
+            </div>
+            <div class="host_list" style="cursor:pointer;" onclick="host_list()">
+                주최한 </br>프로젝트
+            </div>
+        </div>
+        <div class="main_area">
+            <div class="board_wrap">
+                <div class="board_title">
+                    <strong>모집 중인 프로젝트</strong>
+                    <p>함께할 사람을 구합니다.</p>
+                </div>
+                <div class="board_view_wrap">
+                    <div class="board_view">
+                        <div class="title" id="title">
+                        </div>
+                        <div class="info">
+                        </div>
+                        <div class="cont" id="content">
+                        </div>
+                    </div>
+                    <div class="bt_wrap" id="buttons">
+                        <a href="list.html" class="on">신청</a>
+                        <a href="edit.html">수정</a>
+                        <a href="edit.html">삭제</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

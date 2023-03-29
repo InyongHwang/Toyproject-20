@@ -14,7 +14,7 @@
 
     <title>내가 신청한 프로젝트 페이지</title>
 
-    <link rel="stylesheet" href="/static/css.css">
+    <link rel="stylesheet" href="/static/css.css"> 
     <script>
         let domain = window.location.protocol + '//' + window.location.host
         
@@ -69,21 +69,55 @@
                 window.location.reload()
             })
         }
+
+        function join_list() {
+            window.location.href = domain + '/projects/join'
+        }
+
+        function host_list() {
+            window.location.href = domain + '/projects/host'
+        }
+
+        function main() {
+            window.location.href = domain+ '/projects/main'
+        }
     </script>
 </head>
 
 <body>
-    <div class="board_wrap">
-        <div class="board_title">
-            <strong>내가 신청한 프로젝트</strong>
-            <p>참가 신청한 프로젝트 리스트입니다</p>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+        <h1>로고 영역</h1>
+    </div>
+    <div class="container">
+        <div class="side_bar">
+            <div class="profile">
+                닉네임
+            </div>
+            <div class="join_list" style="cursor:pointer;" onclick="join_list()">
+                신청한 </br>프로젝트
+            </div>
+            <div class="host_list" style="cursor:pointer;" onclick="host_list()">
+                주최한 </br>프로젝트
+            </div>
         </div>
-        <div class="board_list_wrap">
-            <div class="board_list" id="projects">
-                <div class="top">
-                    <div class="num">번호</div>
-                    <div class="title">프로젝트 제목</div>
-                    <div class="count">취소</div>
+        <div class="main_area">
+            <div class="board_wrap">
+                <div class="board_write_wrap">
+                    <div class="board_wrap">
+                        <div class="board_title">
+                            <strong>내가 신청한 프로젝트</strong>
+                            <p>참가 신청한 프로젝트 리스트입니다</p>
+                        </div>
+                        <div class="board_list_wrap">
+                            <div class="board_list" id="projects">
+                                <div class="top">
+                                    <div class="num">번호</div>
+                                    <div class="title">프로젝트 제목</div>
+                                    <div class="count">취소</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -65,32 +65,62 @@
                 window.location.href = url
             })
         }
+
+        function join_list() {
+            window.location.href = domain + '/projects/join'
+        }
+
+        function host_list() {
+            window.location.href = domain + '/projects/host'
+        }
+
+        function main() {
+            window.location.href = domain+ '/projects/main'
+        }
     </script>
 </head>
 
 <body>
-    <div class="board_wrap">
-        <div class="board_title">
-            <strong>수정하기</strong>
-            <p>프로젝트 팀원 모집 게시글을 수정합니다.</p>
-        </div>
-        <div class="board_write_wrap">
-            <div class="board_write">
-                <div class="title">
-                    <dl>
-                        <dt>제목</dt>
-                        <dd><input type="text" placeholder="제목 입력" value="" id="title"></dd>
-                    </dl>
-                </div>
-                <div class="info">
-                </div>
-                <div class="cont">
-                    <textarea placeholder="내용 입력" id="content">
-                    </textarea>
-                </div>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+        <h1>로고 영역</h1>
+    </div>
+    <div class="container">
+        <div class="side_bar">
+            <div class="profile">
+                닉네임
             </div>
-            <div class="bt_wrap" id="edit_button">
-                <a href="#" class="on">수정 완료</a>
+            <div class="join_list" style="cursor:pointer;" onclick="join_list()">
+                신청한 </br>프로젝트
+            </div>
+            <div class="host_list" style="cursor:pointer;" onclick="host_list()">
+                주최한 </br>프로젝트
+            </div>
+        </div>
+        <div class="main_area">
+            <div class="board_wrap">
+                <div class="board_title">
+                    <strong>수정하기</strong>
+                    <p>프로젝트 팀원 모집 게시글을 수정합니다.</p>
+                </div>
+                <div class="board_write_wrap">
+                    <div class="board_write">
+                        <div class="title">
+                            <dl>
+                                <dt>제목</dt>
+                                <dd><input type="text" placeholder="제목 입력" value="" id="title"></dd>
+                            </dl>
+                        </div>
+                        <div class="info">
+                        </div>
+                        <div class="cont">
+                            <textarea placeholder="내용 입력" id="content">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="bt_wrap" id="edit_button">
+                        <a href="#" class="on">수정 완료</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
