@@ -17,7 +17,7 @@ a {
 }
 
 .board_wrap {
-    width: 1000px;
+    width: 800px;
     margin: 100px auto;
 }
 
@@ -94,7 +94,8 @@ a {
 
 .board_list .title {
     width: 60%;
-    text-align: left;
+    text-align: center;
+    font-size:1.8rem;
 }
 
 .board_list .top .title {
@@ -103,10 +104,16 @@ a {
 
 .board_list .writer {
     width: 10%;
+    margin-left: 100px;
+}
+
+.board_list .email {
+    width: 35%
 }
 
 .board_list .date {
     width: 10%;
+    margin-left: 100px;
 }
 
 .board_list .count {
@@ -199,10 +206,6 @@ a {
     font-size: 1.4rem;
 }
 
-.board_view .info dl dt {
-
-}
-
 .board_view .info dl dd {
     margin-left: 10px;
     color: #777;
@@ -271,6 +274,7 @@ a {
 
 .board_write .cont {
     border-bottom: 1px solid #000;
+    font-size: 1.4rem;
 }
 
 .board_write .cont textarea {

@@ -12,11 +12,7 @@ from bson import ObjectId
 client = MongoClient('mongodb+srv://sparta:test@cluster0.qr5m03o.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbtoyproject
 
-bp = Blueprint('detali', __name__, url_prefix='/projects')
-
-@bp.route('/main')
-def main_home():
-    return '임시 메인 페이지입니다'
+bp = Blueprint('detail', __name__, url_prefix='/projects')
 
 # 1-1
 @bp.route('/<post_id>')

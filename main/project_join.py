@@ -39,14 +39,14 @@ def join_home():
 def show_joining_projects():
     json_data = request.get_json()
     member_email = json_data['member_email']
-    
+
     projects = list(db.join.find({'member_email':member_email}))
 
     joining_projects = []
     for project in projects:
         post_id = project['post_id']
         join_id = str(project['_id'])
-
+        print(post_id)
         project = db.project.find_one({'_id':ObjectId(post_id)}, {'_id':False})
         
         li = {'join_id':join_id, 'post_id':post_id, 'title':project['title']}

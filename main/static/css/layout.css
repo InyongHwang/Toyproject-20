@@ -1,7 +1,10 @@
 .logo {
-    background-color: green;
-    width:200px;
-    height:100px;
+    background-image: url('/static/images/logo.jpg');
+    background-position: center;
+    background-size: cover;
+
+    width:300px;
+    height:150px;
     margin:20px auto auto auto;
     text-align:center;
     padding:20px;
@@ -9,41 +12,99 @@
 .container {
     margin-top:20px;
     display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .container > div {
-    background-color:gray;
     display: inline-block;
     margin-right:20px;
 }
 .side_bar {
+    padding-top:100px;
     width:120px;
     height:500px;
+    margin-right: 10px;
 }
 .side_bar > div {
+    border-radius: 5px;
+
     margin:auto;
-    background-color: aqua;
+    color: white;
+    background-color: black;
     margin-bottom:50px;
     text-align:center;
-    padding-top:20px;
 }
 .profile {
-    background-color:aqua;
-    border-radius:50%;
-    width:100px;
-    height:100px;
-    text-align:center;
-    font-size:20px;
+    padding-top: 10px;
+    font-size: 15px;
+    width: 100px;
+    height: 45px;
 }
 .join_list {
-    font-size:20px;
+    padding-top:2px;
+    font-size:15px;
     width:100px;
-    height:100px;
+    height:45px;
 }
 .host_list {
-    font-size:20px;
+    padding-top:2px;
+    font-size:15px;
     width:100px;
-    height:100px;
+    height:45px;
 }
-.board_wrap {
-    width:800px;
+
+.btteam {
+    width:100px;
+    margin-left:350px;
+    margin-bottom:10px;
+}
+.btteam > button {
+    font-size:1.4rem;
+}
+
+.write-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+    margin-left:370px;
+}
+
+.cancle-btn {
+    height: 40px;
+    font-size: 13px;
+}
+
+.cancle {
+    margin-left:125px;
+}
+
+.check-apply {
+    margin-left:100px;
+}
+
+.check-btn {
+    height:40px;
+    width: 90px;
+    font-size:13px;
+}
+
+.enroll-btn {
+    height: 40px;
+    width: 80px;
+    font-size: 15px;
+    margin-left:700px;
+}
+
+.accept-btn {
+    height:30px;
+    width:60px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.reject-btn {
+    height:30px;
+    width:60px;
+    margin-bottom: 10px;
+    margin-left: 25px;
 }

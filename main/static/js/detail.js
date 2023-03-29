@@ -1,7 +1,12 @@
-let domain = window.location.protocol + '//' + window.location.host
-
 $(document).ready(function () {
     show_project();
+    let token = $.cookie('mytoken')
+
+    if (token == undefined) {
+        $('#profile_area').text('로그인')
+    } else {
+        $('#profile_area').text('로그아웃')
+    }
 });
 
 function show_project() {
@@ -13,17 +18,26 @@ function show_project() {
             let title = data['title']
             let content = data['content']
             
-            // let writer_email = data['member_email'].trim()
-            // let member_email = $.cookie('email').trim()
-            
             let writer_email = data['member_email'].trim()
-            let member_email = 'tjsalszla123@gmail.com'.trim()
+            
+            let token = $.cookie('mytoken')
+
+            function parseJwt (token) {
+                var base64Url = token.split('.')[1];
+                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+            
+                return JSON.parse(jsonPayload);
+            }
+            let member_email = parseJwt(token)['email'].trim()
             
             $('#title').text(title)
             $('#content').text(content)
 
             $('#buttons').empty()
-            let edit_url = domain + '/projects/edit/' + post_id
+            let edit_url = '/projects/edit/' + post_id
             temp_html = `<a href="#" onclick="join_project('${post_id}')" class="on" id="join_button">신청</a>
                          <a href="${edit_url}" id="edit_button">수정</a>
                          <a href="#" onclick="delete_project('${post_id}')" id="delete_button">삭제</a>`
@@ -52,13 +66,23 @@ function delete_project(post_id) {
         body:json_data
     }).then(res => res.json()).then(data => {
         alert(data['msg'])
-        window.location.href = domain + '/projects/main'
+        window.location.href = '/projects/main'
     })
 }
 
 function join_project(post_id) {
-    // let member_email = $.cookie('email')
-    let member_email = 'tjsalszla123@gmail.com'
+    let token = $.cookie('mytoken')
+
+    function parseJwt (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    
+        return JSON.parse(jsonPayload);
+    }
+    let member_email = parseJwt(token)['email'].trim()
 
     let json_data = JSON.stringify({
         'member_email':member_email,
@@ -72,25 +96,48 @@ function join_project(post_id) {
     }).then(res => res.json()).then(data => {
         alert(data['msg'])
         if (data['success'] == false) {
-            window.location.href = domain + '/projects/main'
+            window.location.href = '/projects/main'
         } else {
-            window.location.href = domain + '/projects/join'
+            window.location.href = '/projects/join'
         }
     })
 }
 
 function join_list() {
-    window.location.href = domain + '/projects/join'
+    let token = $.cookie('mytoken')
+
+    if (token == undefined) {
+        alert('로그인이 필요합니다.')
+        window.location.href = '/login'
+    } else {
+        window.location.href = '/projects/join'
+    }
 }
 
 function host_list() {
-    window.location.href = domain + '/projects/host'
+    let token = $.cookie('mytoken')
+
+    if (token == undefined) {
+        alert('로그인이 필요합니다.')
+        window.location.href = '/login'
+    } else {
+        window.location.href = '/projects/open'
+    }
+   
 }
 
 function main() {
-    window.location.href = domain+ '/projects/main'
+    window.location.href = '/projects/main'
 }
 
-function show_nickname() {
+function log() {
+    let token = $.cookie('mytoken')
     
+    if (token == undefined) {
+        window.location.href = '/login'
+    } else {
+        $.removeCookie('mytoken', {path:'/'})
+        alert('로그아웃!')
+        window.location.href = '/'
+    }
 }

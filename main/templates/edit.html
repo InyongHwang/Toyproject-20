@@ -17,18 +17,18 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
     rel="stylesheet" />
-    <link rel="stylesheet" href="/static/css/css.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
+    <link rel="stylesheet" href="/static/css/css.css">
     <script src="/static/js/edit.js"></script>
 </head>
 
 <body>
     <div class="logo" style="cursor:pointer;" onclick="main()">
-        <h1>로고 영역</h1>
     </div>
     <div class="container">
         <div class="side_bar">
-            <div class="profile">
+            <div class="profile" id="profile_area" style="cursor:pointer;" onclick="log()">
                 닉네임
             </div>
             <div class="join_list" style="cursor:pointer;" onclick="join_list()">
