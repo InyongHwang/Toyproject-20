@@ -14,10 +14,6 @@ db = client.dbtoyproject
 
 bp = Blueprint('detail', __name__, url_prefix='/projects')
 
-@bp.route('/main')
-def main_home():
-    return '임시 메인 페이지입니다'
-
 # 1-1
 @bp.route('/<post_id>')
 def detail_home(post_id):
