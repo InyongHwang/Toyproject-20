@@ -65,7 +65,7 @@ function host_list() {
         alert('로그인이 필요합니다.')
         window.location.href = '/login'
     } else {
-        window.location.href = '/projects/host'
+        window.location.href = '/projects/open'
     }
    
 }

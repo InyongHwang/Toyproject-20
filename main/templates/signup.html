@@ -13,6 +13,7 @@
 
     <title>Document</title>
 
+    <link rel="stylesheet" href="/static/css/sign.css">
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
     <script>
@@ -21,7 +22,10 @@
             let nickname_give = $('#nickname').val()
             let password_give = $('#password').val()
             let bloglink_give = $('#bloglink').val()
-            
+            console.log(email_give)
+            console.log(nickname_give)
+            console.log(password_give)
+            console.log(bloglink_give)
             let json_data = JSON.stringify({
                 'email_give': email_give,
                 'nickname_give': nickname_give,
@@ -36,7 +40,8 @@
             }).then((res) => res.json()).then((data) => {
                 success = data['result']
                 if (success == true) {
-                    window.location.href = 'http://localhost:5000/login'
+                    alert('회원가입 완료!')
+                    window.location.href = '/login'
                 } else {
                     alert(data['msg'])
                     window.location.reload()
@@ -47,10 +52,14 @@
 
 </head>
 <body>
-    <input type="text", id="email">이메일<br>
-    <input type="text", id="nickname">닉네임<br>
-    <input type="password", id="password">패스워드<br>
-    <input type="text", id="bloglink">블로그링크<br>
-    <button onclick="signup()">회원가입하기</button>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+    </div>
+    <div class="login-form">
+        <input type="text" id="email" class="text-field" placeholder="이메일을 입력하세요."><br>
+        <input type="text" id="nickname" class="text-field" placeholder="닉네임을 입력하세요."><br>
+        <input type="text" id="password" class="text-field" placeholder="비밀번호를 입력하세요."><br>
+        <input type="text" id="bloglink" class="text-field" placeholder="블로그 링크를 입력하세요."><br>
+        <input type="button" value="회원가입" class="login-btn" onclick="signup()">
+    </div>
 </body>
 </html>
