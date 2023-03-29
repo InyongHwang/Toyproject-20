@@ -45,7 +45,7 @@ function show_joining_project() {
                                 <div class="num">${num}</div>
                                 <div class="title">${title}</div>
                                 <div class="date">
-                                    <button type="button" class="btn btn-dark" onclick="cancle('${join_id}')">신청 취소</button>
+                                    <button type="button" class="btn btn-dark cancle-btn" onclick="cancle('${join_id}')">신청 취소</button>
                                 </div>
                             </div>`
             $('#projects').append(temp_html)

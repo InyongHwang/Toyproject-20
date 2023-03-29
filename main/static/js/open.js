@@ -45,7 +45,7 @@ function show_joining_project() {
                                 <div class="num">${num}</div>
                                 <div class="title">${title}</div>
                                 <div class="date">
-                                    <button type="button" class="btn btn-dark" onclick="check_volunteer('${open_project_id}')">신청자 확인</button>
+                                    <button type="button" class="btn btn-dark check-btn" onclick="check_volunteer('${open_project_id}')">신청자 확인</button>
                                 </div>
                             </div>`
             $('#open_projects').append(temp_html)
@@ -93,8 +93,8 @@ function check_volunteer(open_project_id) {
                                 <div class="num">${num}</div>
                                 <div class="email">${member_email}</div>
                                 <div class="email"> </div>
-                                <div class="num" onclick="accept('${vol_id}')" style="cursor:pointer">승인</div>
-                                <div class="num" onclick="reject('${vol_id}')" style="cursor:pointer">거절</div>
+                                <button type="butoon" class="btn btn-dark accept-btn" onclick="accept('${vol_id}')" style="cursor:pointer">승인</button>
+                                <button type="button" class="btn btn-dark reject-btn" onclick="reject('${vol_id}')" style="cursor:pointer">거절</button>
                             </div>`
             $('#open_projects').append(temp_html)
         })
