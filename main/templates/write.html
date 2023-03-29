@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <link rel="stylesheet" href = "../static/css/css.css">
+    <script src="/static/js/write.js"></script>
+
+    <title>20조 버는 프로젝트</title>
+
+</head>
+
+<body>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+    </div>
+    <div class="container">
+        <div class="side_bar">
+            <div class="profile" id="profile_area" style="cursor:pointer;" onclick="log()">
+                닉네임
+            </div>
+            <div class="join_list" style="cursor:pointer;" onclick="join_list()">
+                신청한 </br>프로젝트
+            </div>
+            <div class="host_list" style="cursor:pointer;" onclick="host_list()">
+                주최한 </br>프로젝트
+            </div>
+        </div>
+        <div class="main_area">
+            <div class="board_wrap">
+                <div class="board_title">
+                    <strong>팀원모집</strong>
+        
+                </div>
+                <div class="board_write_wrap">
+                    <div class="board_write" >
+                        <div class="title">
+                            <dl>
+                                <dt>제목</dt>
+                                <dd><input type="text" id="title" placeholder="제목 입력"></dd>
+                            </dl>
+                        </div>
+        
+                        <div class="cont">
+                            <textarea placeholder="내용 입력" id="content"></textarea>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <button type="button" class="btn btn-dark enroll-btn" onclick="save_content()">등록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

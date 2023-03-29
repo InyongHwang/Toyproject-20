@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/static/css/sign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <script>
+        function signup() {
+            let email_give = $('#email').val()
+            let nickname_give = $('#nickname').val()
+            let password_give = $('#password').val()
+            let bloglink_give = $('#bloglink').val()
+            console.log(email_give)
+            console.log(nickname_give)
+            console.log(password_give)
+            console.log(bloglink_give)
+            let json_data = JSON.stringify({
+                'email_give': email_give,
+                'nickname_give': nickname_give,
+                'password_give': password_give,
+                'bloglink_give': bloglink_give
+            })
+
+            fetch('/api/signup', {
+                method: "POST", 
+                headers:{'Content-Type':'application/json'},
+                body: json_data
+            }).then((res) => res.json()).then((data) => {
+                success = data['result']
+                if (success == true) {
+                    alert('회원가입 완료!')
+                    window.location.href = '/login'
+                } else {
+                    alert(data['msg'])
+                    window.location.reload()
+                }
+            })
+        }
+
+        function main() {
+            window.location.href='/'
+        }
+    </script>
+
+</head>
+<body>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+    </div>
+    <div class="login-form">
+        <input type="text" id="email" class="text-field" placeholder="이메일을 입력하세요."><br>
+        <input type="text" id="nickname" class="text-field" placeholder="닉네임을 입력하세요."><br>
+        <input type="text" id="password" class="text-field" placeholder="비밀번호를 입력하세요."><br>
+        <input type="text" id="bloglink" class="text-field" placeholder="블로그 링크를 입력하세요."><br>
+        <input type="button" value="회원가입" class="login-btn" onclick="signup()">
+    </div>
+</body>
+</html>

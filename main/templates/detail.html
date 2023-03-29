@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>게시글 상세 페이지</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="/static/css/css.css">
+    <script src="/static/js/detail.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+</head>
+
+<body>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+    </div>
+    <div class="container">
+        <div class="side_bar">
+            <div class="profile" id="profile_area" style="cursor:pointer;" onclick="log()">
+                닉네임
+            </div>
+            <div class="join_list" style="cursor:pointer;" onclick="join_list()">
+                신청한 </br>프로젝트
+            </div>
+            <div class="host_list" style="cursor:pointer;" onclick="host_list()">
+                주최한 </br>프로젝트
+            </div>
+        </div>
+        <div class="main_area">
+            <div class="board_wrap">
+                <div class="board_title">
+                    <strong>모집 중인 프로젝트</strong>
+                    <p>함께할 사람을 구합니다.</p>
+                </div>
+                <div class="board_view_wrap">
+                    <div class="board_view">
+                        <div class="title" id="title">
+                            제목
+                        </div>
+                        <div class="info">
+                        </div>
+                        <div class="cont" id="content">
+                            내용
+                        </div>
+                    </div>
+                    <div class="bt_wrap" id="buttons">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
