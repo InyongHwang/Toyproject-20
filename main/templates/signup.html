@@ -15,6 +15,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="/static/css/sign.css">
+
     <script>
         function signup() {
             let email_give = $('#email').val()
@@ -47,10 +49,12 @@
 
 </head>
 <body>
-    <input type="text", id="email">이메일<br>
-    <input type="text", id="nickname">닉네임<br>
-    <input type="password", id="password">패스워드<br>
-    <input type="text", id="bloglink">블로그링크<br>
-    <button onclick="signup()">회원가입하기</button>
+    <div class="login-form">
+        <input type="text" id="email" class="text-field" placeholder="이메일을 입력하세요."><br>
+        <input type="text" id="email" class="text-field" placeholder="닉네임을 입력하세요."><br>
+        <input type="text" id="email" class="text-field" placeholder="비밀번호를 입력하세요."><br>
+        <input type="text" id="email" class="text-field" placeholder="블로그 링크를 입력하세요."><br>
+        <input type="button" value="회원가입" class="login-btn" onclick="signup()">
+    </div>
 </body>
 </html>

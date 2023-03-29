@@ -28,9 +28,15 @@
         window.location.replace('/login')
       }
 
-      // 내가 모집하는 프로젝트 버튼 클릭
-      function myopen() {
+      // 내가 신청한 프로젝트 버튼 클릭
+      function join_project() {
         let url = domain + '/projects/join'
+        window.location.href = url
+      }
+
+      // 내가 모집한 프로젝트 버튼 클릭
+      function open_project() {
+        let url = domain + '/projects/open'
         window.location.href = url
       }
 
@@ -38,8 +44,8 @@
 </head>
 <body>
     안녕하세요.<br>
-    <button onclick="myopen()">내가 모집하는 프로젝트</button><br>
-    <button onclick="myopen()">내가 신청한 프로젝트</button><br>
+    <button onclick="open_project()">내가 모집하는 프로젝트</button><br>
+    <button onclick="join_project()">내가 신청한 프로젝트</button><br>
     <button class="button is-danger" onclick="logout()">로그아웃하기</button>
 </body>
 </html>

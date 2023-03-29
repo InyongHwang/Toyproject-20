@@ -105,6 +105,10 @@ a {
     width: 10%;
 }
 
+.board_list .email {
+    width: 35%
+}
+
 .board_list .date {
     width: 10%;
 }
