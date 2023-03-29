@@ -22,32 +22,50 @@
 </head>
 
 <body>
-    <div class="board_wrap">
-        <div class="board_title">
-            <strong>팀원모집</strong>
-
-        </div>
-        <div class="board_write_wrap">
-            <div class="board_write" >
-                <div class="title">
-                    <dl>
-                        <dt>제목</dt>
-                        <dd><input type="text" id="title" placeholder="제목 입력"></dd>
-                    </dl>
-                </div>
-
-                <div class="cont">
-                    <textarea placeholder="내용 입력" id="content"></textarea>
-                </div>
+    <div class="logo" style="cursor:pointer;" onclick="main()">
+    </div>
+    <div class="container">
+        <div class="side_bar">
+            <div class="profile" id="profile_area" style="cursor:pointer;" onclick="log()">
+                닉네임
             </div>
-            <div class="btn">
-                <button onclick="save_content()" type="button">
-                    등록
-                </button>
-
+            <div class="join_list" style="cursor:pointer;" onclick="join_list()">
+                신청한 </br>프로젝트
+            </div>
+            <div class="host_list" style="cursor:pointer;" onclick="host_list()">
+                주최한 </br>프로젝트
+            </div>
+        </div>
+        <div class="main_area">
+            <div class="board_wrap">
+                <div class="board_title">
+                    <strong>팀원모집</strong>
+        
+                </div>
+                <div class="board_write_wrap">
+                    <div class="board_write" >
+                        <div class="title">
+                            <dl>
+                                <dt>제목</dt>
+                                <dd><input type="text" id="title" placeholder="제목 입력"></dd>
+                            </dl>
+                        </div>
+        
+                        <div class="cont">
+                            <textarea placeholder="내용 입력" id="content"></textarea>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <button onclick="save_content()" type="button">
+                            등록
+                        </button>
+        
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

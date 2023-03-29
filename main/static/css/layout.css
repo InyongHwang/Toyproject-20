@@ -1,7 +1,10 @@
 .logo {
-    background-color: green;
-    width:200px;
-    height:100px;
+    background-image: url('/static/images/logo.jpg');
+    background-position: center;
+    background-size: cover;
+
+    width:300px;
+    height:200px;
     margin:20px auto auto auto;
     text-align:center;
     padding:20px;
@@ -9,15 +12,17 @@
 .container {
     margin-top:20px;
     display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .container > div {
-    background-color:gray;
     display: inline-block;
     margin-right:20px;
 }
 .side_bar {
+    padding-top:100px;
     width:120px;
-    height:500px;
+    height:800px;
 }
 .side_bar > div {
     margin:auto;
@@ -46,4 +51,12 @@
 }
 .board_wrap {
     width:800px;
+}
+.btteam {
+    width:100px;
+    margin-left:720px;
+    margin-bottom:10px;
+}
+.btteam > button {
+    font-size:1.4rem;
 }

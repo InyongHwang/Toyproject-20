@@ -1,4 +1,11 @@
-let domain = window.location.protocol + '//' + window.location.host
+$(document).ready(function () {
+    let token = $.cookie('mytoken')
+    if (token == undefined) {
+        $('#profile_area').text('로그인')
+    } else {
+        $('#profile_area').text('로그아웃')
+    }
+});
 
 function save_content() {
     let token = $.cookie('mytoken')
@@ -28,7 +35,46 @@ function save_content() {
                 body: json_data
     }).then((res) => res.json()).then((data) => {
         alert(data["msg"]);
-        let url = domain + '/projects/main'
+        let url = '/projects/main'
         window.location.href = url
     });
+}
+
+function join_list() {
+    let token = $.cookie('mytoken')
+
+    if (token == undefined) {
+        alert('로그인이 필요합니다.')
+        window.location.href = '/login'
+    } else {
+        window.location.href = '/projects/join'
+    }
+}
+
+function host_list() {
+    let token = $.cookie('mytoken')
+
+    if (token == undefined) {
+        alert('로그인이 필요합니다.')
+        window.location.href = '/login'
+    } else {
+        window.location.href = '/projects/host'
+    }
+   
+}
+
+function main() {
+    window.location.href = '/projects/main'
+}
+
+function log() {
+    let token = $.cookie('mytoken')
+    
+    if (token == undefined) {
+        window.location.href = '/login'
+    } else {
+        $.removeCookie('mytoken', {path:'/'})
+        alert('로그아웃!')
+        window.location.href = '/'
+    }
 }

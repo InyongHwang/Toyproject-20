@@ -10,11 +10,9 @@ db = client.dbtoyproject
 bp = Blueprint('login', __name__, url_prefix='/')
 SECRET_KEY = '20T'
 
-
-
 @bp.route('/') 
 def before_login():
-    return render_template('before_login.html')
+    return render_template('main.html')
 
 @bp.route('/main')
 def after_login():
