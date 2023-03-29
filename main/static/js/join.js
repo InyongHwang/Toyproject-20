@@ -5,8 +5,19 @@ $(document).ready(function () {
 });
 
 function show_joining_project() {
-    // let member_email = $.cookie('email')
-    let member_email = 'tjsalszla123@gmail.com'
+    // 토큰 복호화
+    let token = $.cookie('mytoken')
+
+    function parseJwt (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    
+        return JSON.parse(jsonPayload);
+    }
+    let member_email = parseJwt(token)['email']
 
     let json_data = JSON.stringify({
         'member_email':member_email

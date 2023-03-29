@@ -13,11 +13,20 @@ function show_project() {
             let title = data['title']
             let content = data['content']
             
-            // let writer_email = data['member_email'].trim()
-            // let member_email = $.cookie('email').trim()
-            
             let writer_email = data['member_email'].trim()
-            let member_email = 'tjsalszla123@gmail.com'.trim()
+            
+            let token = $.cookie('mytoken')
+
+            function parseJwt (token) {
+                var base64Url = token.split('.')[1];
+                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+            
+                return JSON.parse(jsonPayload);
+            }
+            let member_email = parseJwt(token)['email'].trim()
             
             $('#title').text(title)
             $('#content').text(content)
@@ -57,8 +66,18 @@ function delete_project(post_id) {
 }
 
 function join_project(post_id) {
-    // let member_email = $.cookie('email')
-    let member_email = 'tjsalszla123@gmail.com'
+    let token = $.cookie('mytoken')
+
+    function parseJwt (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    
+        return JSON.parse(jsonPayload);
+    }
+    let member_email = parseJwt(token)['email'].trim()
 
     let json_data = JSON.stringify({
         'member_email':member_email,
