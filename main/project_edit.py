@@ -30,6 +30,6 @@ def edit_project():
     post_id = json_data['post_id']
     title = json_data['title']
     content = json_data['content']
-    # updated_at = datetime.today()
+    
     db.project.update_one({'_id':ObjectId(post_id)}, {'$set':{'title':title, 'content':content}})
     return jsonify({'msg':'수정 완료'})

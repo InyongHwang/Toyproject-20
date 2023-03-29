@@ -12,12 +12,13 @@ function show_project() {
         if (data['success'] == true) {
             let title = data['title']
             let content = data['content']
-            // let writer_email = 123 // 이 게시글을 작성한 유저의 email
-            // let member_email = $.cookie('email'), if == undefined
             
-            let writer_email = data['member_email']
-            let member_email = 'w.hand715@gmail.com'
-
+            // let writer_email = data['member_email'].trim()
+            // let member_email = $.cookie('email').trim()
+            
+            let writer_email = data['member_email'].trim()
+            let member_email = 'tjsalszla123@gmail.com'.trim()
+            
             $('#title').text(title)
             $('#content').text(content)
 
@@ -57,7 +58,7 @@ function delete_project(post_id) {
 
 function join_project(post_id) {
     // let member_email = $.cookie('email')
-    let member_email = 'w.hand715@gmail.com'
+    let member_email = 'tjsalszla123@gmail.com'
 
     let json_data = JSON.stringify({
         'member_email':member_email,

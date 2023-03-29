@@ -7,6 +7,8 @@ from pymongo import MongoClient
 from bson import ObjectId
 
 # 팀 mongodb : mongodb+srv://sparta:test@cluster0.oduyak2.mongodb.net/?retryWrites=true&w=majority
+# my mongodb : mongodb+srv://sparta:test@cluster0.qr5m03o.mongodb.net/?retryWrites=true&w=majority
+# 재형 mongodb : mongodb://sparta:test@ac-xuujf6q-shard-00-00.coyzpl6.mongodb.net:27017,ac-xuujf6q-shard-00-01.coyzpl6.mongodb.net:27017,ac-xuujf6q-shard-00-02.coyzpl6.mongodb.net:27017/?ssl=true&replicaSet=atlas-lrxmt3-shard-0&authSource=admin&retryWrites=true&w=majority
 client = MongoClient('mongodb+srv://sparta:test@cluster0.qr5m03o.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbtoyproject
 

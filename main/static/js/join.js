@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 function show_joining_project() {
     // let member_email = $.cookie('email')
-    let member_email = 'w.hand715@gmail.com'
+    let member_email = 'tjsalszla123@gmail.com'
 
     let json_data = JSON.stringify({
         'member_email':member_email
