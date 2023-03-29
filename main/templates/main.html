@@ -12,6 +12,8 @@
         crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    
     <link rel="stylesheet" href = "/static/css/css.css">
     <script src="/static/js/main.js"></script>
     
@@ -19,28 +21,47 @@
 </head>
 
 <body>
-    <div class="board_wrap">
-        <div class="board_title">
-            <strong>20조버는 서비스</strong>
-
+    <div onclick="is_member()">
+        <div class="logo" style="cursor:pointer;" onclick="main()">
+            <h1>로고 영역</h1>
         </div>
-        <div class="board_list_wrap">
-            <div class="board_list" id = "content-list">
-                <div class="top">
-                    <div class="num">번호</div>
-                    <div class="title">제목</div>
-                    <div class="writer">글쓴이</div>
-                    <div class="date">작성일</div>
+        <div class="container">
+            <div class="side_bar">
+                <div class="profile" id="profile_area">
+                    닉네임
+                </div>
+                <div class="join_list" style="cursor:pointer;" onclick="join_list()">
+                    신청한 </br>프로젝트
+                </div>
+                <div class="host_list" style="cursor:pointer;" onclick="host_list()">
+                    주최한 </br>프로젝트
                 </div>
             </div>
-
-            <div class="btteam">
-                <button type="button" onclick="go_write_page()"> 팀원 모집</button>
+            <div class="main_area">
+                <div class="board_wrap">
+                    <div class="board_title">
+                        <strong>20조버는 서비스</strong>
+                    </div>
+                    <div class="board_list_wrap">
+                        <div class="board_list" id = "content-list">
+                            <div class="top">
+                                <div class="num">번호</div>
+                                <div class="title">제목</div>
+                                <div class="writer">글쓴이</div>
+                                <div class="date">작성일</div>
+                            </div>
+                        </div>
+                        <div class="btteam">
+                            <button type="button" onclick="go_write_page()"> 팀원 모집</button>
+                        </div>
+                        <div class="btlogin">
+                            <button type="button" onclick="go_login_page()"> 로그인</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="btlogin">
-                <button type="button" onclick="go_login_page()"> 로그인</button>
-            </div>
+        </div>
+    </div>
 </body>
 
 </html>

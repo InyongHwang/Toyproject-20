@@ -109,7 +109,3 @@ function host_list() {
 function main() {
     window.location.href = domain+ '/projects/main'
 }
-
-function show_nickname() {
-    
-}
