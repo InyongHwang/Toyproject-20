@@ -22,36 +22,37 @@
 .side_bar {
     padding-top:100px;
     width:120px;
-    height:800px;
+    height:500px;
+    margin-right: 10px;
 }
 .side_bar > div {
+    border-radius: 5px;
+
     margin:auto;
-    background-color: aqua;
+    color: white;
+    background-color: black;
     margin-bottom:50px;
     text-align:center;
-    padding-top:20px;
 }
 .profile {
-    background-color:aqua;
-    border-radius:50%;
-    width:100px;
-    height:100px;
-    text-align:center;
-    font-size:20px;
+    padding-top: 10px;
+    font-size: 15px;
+    width: 100px;
+    height: 45px;
 }
 .join_list {
-    font-size:20px;
+    padding-top:2px;
+    font-size:15px;
     width:100px;
-    height:100px;
+    height:45px;
 }
 .host_list {
-    font-size:20px;
+    padding-top:2px;
+    font-size:15px;
     width:100px;
-    height:100px;
+    height:45px;
 }
-.board_wrap {
-    width:800px;
-}
+
 .btteam {
     width:100px;
     margin-left:350px;
