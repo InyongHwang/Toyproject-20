@@ -127,6 +127,7 @@ function reject(vol_id) {
         body:json_data
     }).then(res => res.json()).then(data => {
         alert(data['msg'])
+        window.location.reload()
     })
 }
 
